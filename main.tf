@@ -27,11 +27,11 @@ module "vpc" {
 
   name = "main-vpc"
 
-  cidr = "10.0.0.0/16"
+  cidr = "10.194.0.0/16"
   azs  = ["ap-northeast-2a", "ap-northeast-2c"]
-
-  private_subnets = ["10.0.1.0/24", "10.0.2.0/24"]
-  public_subnets  = ["10.0.4.0/24", "10.0.5.0/24"]
+# subnet을 10.0.0.0/24 로 하니 로드밸런서에서 이슈가 발생하여 194로 교체진행해봄.
+  private_subnets = ["10.194.0.0/24", "10.194.1.0/24"]
+  public_subnets  = ["10.194.100.0/24", "10.194.101.0/24"]
 
   enable_nat_gateway   = true
   single_nat_gateway   = true
